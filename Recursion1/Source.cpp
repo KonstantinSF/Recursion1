@@ -1,10 +1,12 @@
 ﻿#include <iostream>
 using namespace std; 
-
+#define tab "\t"
 int Factorial(int n); 
 int factorial = 1;
 int Pow(int base, int power);
 int powResult = 1; 
+void Fibonachi(int limitFibonachi);
+int numFibonachi = 0; 
 
 void main()
 {
@@ -33,4 +35,12 @@ int Pow(int base, int power)
 	if (power == 0) return powResult; 
 	powResult *=base;
 	Pow(base, power - 1);
+}
+void Fibonachi(int limitFibonachi)
+{
+	if (numFibonachi >= limitFibonachi) return;
+	
+	cout << numFibonachi << tab; 
+
+	Fibonachi(limitFibonachi);
 }
