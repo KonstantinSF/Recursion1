@@ -7,13 +7,15 @@ int FactorialIdeal(int n);
 //int Pow(int base, int power);
 double Power(int base, double power);
 int powResult = 1;
-int limitFibonacci; 
-void Fibonacсi(int limitFibonacci, int a=0, int b=1);
+void FibonacсiLimit(int limitFibonacсi, int a=0, int b=1);
+void FibonacсiNum(int Num, int i=0, int a = 0, int b = 1);
 
 void main()
 {
 	setlocale(LC_ALL, "");
 	int n; 
+	int limitFibonacci;
+	int Num;
 	cout << "Введите число для вычисления факториала:"; cin>>n;
 	cout << "Значение факториала равно: " << Factorial(n) << endl; 
 	cout << "или другим способом: "<<FactorialIdeal(n) << endl;
@@ -23,7 +25,10 @@ void main()
 	//cout << base << " в степени " << power << "=" << Pow(base, power) << endl;
 	cout << base << " в степени " << power << "= " << Power(base, power) << endl;
 	cout << "Введите предельное число для ряда Фибоначчи: "; cin >> limitFibonacci; 
-	Fibonacсi(limitFibonacci);
+	FibonacсiLimit(limitFibonacci); cout << endl; 
+	cout << "Введите предельный номер числа из ряда Фибоначчи: "; cin >> Num; 
+	FibonacсiNum(Num); 
+
 }
 
 int Factorial(int n)
@@ -55,9 +60,15 @@ double Power(int base, double power)
 	else return 1 / base * Power(base, power + 1);*/
 	return power == 0 ? 1 : power > 0? base * Power(base, power - 1) : 1 / base * Power(base, power + 1);
 }
-void Fibonacсi(int limitFibonacci, int a, int b)
+void FibonacсiLimit(int limitFibonacci, int a, int b)
 {
 	if (a> limitFibonacci) return;
 	cout << a << tab; 
-	Fibonacсi(limitFibonacci, b, a + b);
+	FibonacсiLimit(limitFibonacci, b, a+b);
+}
+void FibonacсiNum(int Num, int i, int a, int b)
+{
+if (i>Num) return;
+cout << a << tab; 
+FibonacсiNum(Num, i++, b, a + b);
 }
